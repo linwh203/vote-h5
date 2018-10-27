@@ -344,11 +344,11 @@ export default {
     },
     music() {
       // const src = 'http://www.ytmp3.cn/down/53718.mp3'
-      const src = '../../../static/assets/01.mp3';
+      const src = 'static/assets/01.mp3';
       const audio = document.getElementById("audio");
       audio.src = src;
       audio.play();
-      audio.loop = true; //歌曲循环
+      audio.loop = true; //歌曲循环`
     },
     drawLine(vdata) {
       // 基于准备好的dom，初始化echarts实例
