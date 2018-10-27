@@ -1,0 +1,102 @@
+@alertbox-color:#0a1937;
+@btn-color:linear-gradient(bottom,#ff005a,#ff0000);
+
+.mobilecheck{
+  width:660px;height:500px;
+  position: fixed;top:0;bottom:0;left:0;right:0;margin:auto;z-index: 111;
+  background: @alertbox-color;
+  border-radius: 10px;/*no*/
+  border: 1px solid #182d59;
+  .flex-column();
+  &__title{
+    color:#fff;
+    font-weight: normal;
+    line-height:100px;
+    margin-bottom:42px;
+    font-size:36px; /*px*/
+    background: linear-gradient(bottom,#0e1f43,#1f3466);
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  &__form{
+    //padding:0 68px 0 76px;
+    .flex-column();
+    input::-webkit-input-placeholder{
+      color: #ccc;
+    }
+    input{
+      font-size:32px; /*px*/
+      color:#b3b3b3;
+      padding:0 28px;
+      height: 80px;
+      line-height:80px;
+      border-radius: 4px;/*no*/
+      width: 520px;
+      border: none;
+    }
+    &-mobile{
+      margin-bottom: 34px;
+      border: 1px solid #bbbbbf;/*no*/
+      border-radius: 4px;/*no*/
+    }
+    &-sessionid{
+      position: relative;
+      margin-bottom:40px;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 4px;/*no*/
+      border: 1px solid #bbbbbf;/*no*/
+      width: 576px;
+      justify-content: space-between;
+      &-btn{
+        font-size:30px; /*px*/
+        width: 180px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        //margin-left:70px;
+        border-radius: 4px;/*no*/
+        background: linear-gradient(bottom,#ff033e,#ff633c);
+        color:#fff;
+        margin-right: 10px;
+      }
+    }
+    &-confirm{
+      line-height:80px; font-size:36px; /*px*/
+      background: @btn-color;
+      width: 576px;
+      //padding:0 200px;
+      border-radius: 4px;/*no*/
+      color:#fff;
+    }
+    &-confirm:disabled{
+      background: #ccc;
+    }
+  }
+  &__closeBtn{
+    width: 30px;
+    height: 30px;
+    background-image: url('./assets/close.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:34px;
+    right:30px;
+    margin: auto;
+    //bottom:-140px;
+  }
+}
+#mobile{
+
+}
+#sessionid{
+  width: 240px;
+}
+.flex-column{
+  display: flex;flex-direction: column;
+  justify-content: flex-start;align-items: center;
+}

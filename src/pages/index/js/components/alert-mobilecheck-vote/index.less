@@ -1,0 +1,112 @@
+@alertbox-color:#0a1937;
+@btn-color:linear-gradient(bottom,#ff023e,#ff643c);
+
+
+.mobilecheck{
+  width:660px;height:500px;
+  //padding:0 52px 48px;
+  position: fixed;top:0;bottom:0;left:0;right:0;margin:auto;z-index: 111;
+  background: @alertbox-color;
+  border-radius: 10px;/*no*/
+  border: 1px solid #182d59;
+  .flex-column();
+  &__title{
+    color:#fff;
+    font-weight: normal;
+    line-height:100px;
+    margin-bottom:37px;
+    font-size:36px; /*px*/
+    background: linear-gradient(bottom,#0e1f43,#1f3466);
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  &__form{
+    //padding:0 68px 0 76px;
+    .flex-column();
+    &-voteword{
+      font-size: 32px;/*px*/
+      line-height: 32px;
+      margin-bottom: 39px;
+      color: #fff;
+
+      span {
+        color: #fbdb79;
+      }
+    }
+    &-voteflag{
+      width: 160px;
+      height: 100px;
+      margin-bottom:21px;
+      background-color: #11131e;
+      border-radius: 1px;/*no*/
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      //background-size: cover;
+      //align-self: flex-start;
+      //display: flex;
+      //align-items: center;
+    }
+    &-votenation {
+      font-size: 22px;/*px*/
+      line-height: 22px;
+      color: #fff;
+      margin-bottom: 37px;
+    }
+
+    &-btngroup {
+      display: flex;
+      justify-content: space-between;
+      width: 480px;
+      button {
+        width: 220px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 28px; /*px*/
+        border-radius: 4px;/*no*/
+        color: #fff;
+        cursor: pointer;
+      }
+
+      &-cancel {
+        background-color: #808080;
+      }
+
+      &-confirm {
+
+        background: @btn-color;
+        //padding:0 224px;
+      }
+      &-confirm:disabled {
+        background: #ccc;
+      }
+    }
+  }
+  &__closeBtn{
+    width: 30px;
+    height: 30px;
+    background-image: url('../alert-mobilecheck/assets/close.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:34px;
+    right:30px;
+    margin: auto;
+  }
+}
+#mobile{
+  //width: 354px;
+}
+#sessionid{
+  //width: 164px;
+  width: 240px;
+}
+
+.flex-column{
+  display: flex;flex-direction: column;
+  justify-content: flex-start;align-items: center;
+}
