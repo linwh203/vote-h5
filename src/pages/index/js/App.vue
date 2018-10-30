@@ -281,7 +281,7 @@ export default {
         }
       ],
       ticketList: [],
-      chartData: []
+      chartData: [],
     };
   },
   methods: {
@@ -415,7 +415,7 @@ export default {
   },
   mounted() {
     this.getList(this.userid);
-    this.music();
+    // this.music();
   }
 };
 </script>

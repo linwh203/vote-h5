@@ -17,6 +17,30 @@
 <body>
 <div id="app"></div>
 <!-- built files will be auto injected -->
+<audio preload="preload" controls id="audio" src="static/assets/01.mp3" loop style="display:none"></audio>
+<img src="static/assets/music.png" style="position:fixed;top: 10px;right: 20px;width: 30px;height: 30px;border-radius: 50%;background: #fff;" id="music">
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var audio = document.getElementById('audio')
+    var music = document.getElementById('music')
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        audio.play();
+        
+    }, false);
+    music.addEventListener('click',function(){
+        event.stopPropagation();
+        if(audio.paused){ //如果当前是暂停状态
+            music.setAttribute('src','static/assets/music.png')
+            audio.play(); //播放
+            return;
+        }else{
+            //当前是播放状态
+            music.setAttribute('src','static/assets/pause.png')
+            audio.pause(); //暂停''
+        }
+    })
+</script>
 </body>
 </html>
 
