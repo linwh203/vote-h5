@@ -43,7 +43,6 @@ export default {
   data() {
     return {
       isWechat: false,
-      canVote: false,
       userid: "",
       IP: "",
       showList: [
@@ -282,32 +281,25 @@ export default {
       ],
       ticketList: [],
       chartData: [],
+      voted:[]
     };
   },
   methods: {
     handleClick(index) {
       if (this.isWechat) {
-        if (this.canVote) {
-          this.postVote(index + 1);
-          lockr.set("voted", true);
-          this.canVote = false;
-          this.getList(this.userid);
+        if(this.voted.length == 3){
           Toast({
-            message: "投票成功",
-            duration: 5000
+            message: "每人最多投3次票哦~",
+            duration: 3000
           });
         } else {
-          Toast({
-            message: "只能投票一次哦~",
-            duration: 5000
-          });
+          this.postVote(index + 1);
+          this.getList(this.userid);
         }
-
-        this.goAnchor("#anchor");
       } else {
         Toast({
           message: "请在微信中打开",
-          duration: 5000
+          duration: 3000
         });
       }
     },
@@ -334,9 +326,33 @@ export default {
         });
     },
     postVote(index) {
+      let picName = `pic${index}`
+      for(let i=0;i<this.voted.length;i++){
+        if(picName == this.voted[i]){
+          Toast({
+            message: "只能投票一次哦~",
+            duration: 3000
+          });
+          return
+        }
+      }
+      console.log('voteData',this.voted)
+      this.voted.push(picName)
+      lockr.set('voteData',this.voted)
       let data = `activityID=1&urUnioniD=${this.userid}&voteNumber=pic${index}&IP=${this.IP}`;
       axios.post(api.vote, data).then(res => {
         console.log(res);
+        this.goAnchor("#anchor");
+        Toast({
+          message: "投票成功",
+          duration: 3000
+        });
+      })
+      .catch(e=>{
+        Toast({
+          message: "网络出错",
+          duration: 2000
+        });
       });
     },
     goAnchor(selector) {
@@ -408,11 +424,8 @@ export default {
       cname = returnCitySN["cname"];
     this.IP = cip;
     this.userid = `${v_weixin}${cip}`;
-
-    if (lockr.get("voted")) {
-      this.canVote = false;
-    } else {
-      this.canVote = true;
+    if(lockr.get('voteData')){
+      this.voted = lockr.get('voteData')
     }
   },
   mounted() {
@@ -468,5 +481,8 @@ export default {
 .Chart {
   box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.4);
   // border-radius: 20px;
+}
+.mint-toast>.mint-toast-text{
+  font-size:30px ; 
 }
 </style>
