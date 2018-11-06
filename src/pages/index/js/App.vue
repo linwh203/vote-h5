@@ -346,7 +346,9 @@ export default {
       // const src = 'http://www.ytmp3.cn/down/53718.mp3'
       const src = 'static/assets/01.mp3';
       const audio = document.getElementById("audio");
-      audio.src = src;
+      audio.play();
+      audio.setAttribute('src',src)
+      audio.load();
       audio.play();
       audio.loop = true; //歌曲循环`
     },
