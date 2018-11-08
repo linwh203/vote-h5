@@ -2,7 +2,20 @@
 <style lang="css" src="mint-ui/lib/style.css"></style>
 <template>
   <div class="app">
-    <h4>摄影大赛投票</h4>
+    <h4>发现HCP之美，彰显HCP文化之韵。</h4>
+    <h4>HCP摄影大赛投票开始啦！</h4>
+    <div class="rules">
+      <p>在这里非常感谢大家的参与！此次比赛共收录作品21幅,每一幅都体现了作者对于HCP之美的认知与理解，每一张照片的定格都是时光的标本。现针对21幅作品以网络投票的方式选出前三名。赶快动动您的手指，选出心仪的作品，为他们加油吧！</p>
+      <br>
+      <h5>投票规则：</h5>  
+      <p>1. 所有微信账号不论是否HCP成员均可参与投票；</p>
+      <p>2. 每个账号只能投票一次，最多可投3票；</p>
+      <p>3. 投票截止时间为11月25号24点。</p>
+      <br>
+      <h5>评选与奖励：</h5>
+      <p>1. 获得票数最多的第一二三名，分别奖励HCP拉杆箱；</p>
+      <p>2. 得票排名前12名内的人员，赠送HCP 2019台历一本。</p>
+    </div>
     <ul >
       <li v-for="(item, index) in showList" :key=index>
         <div class="card">
@@ -453,6 +466,9 @@ export default {
     li:nth-last-of-type(1) {
       border-bottom: none;
     }
+  }
+  .rules{
+    padding:5px 20px;
   }
   .card {
     text-align: left;
